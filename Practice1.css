@@ -1,0 +1,107 @@
+:root {
+    --main-color: #a10303;
+    --bg-color: #ffffff;
+}
+
+body{
+    background-color: #ffb978b9;
+    font-family: Arial, sans-serif;
+    margin: 0 auto;
+    padding: 0;
+}
+
+header{
+    color: var(--main-color);
+    padding: 10px 0;
+    text-align: center;
+    width: 30%;
+    margin: 0 auto;
+}
+section{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 79vh;
+} 
+article{
+    position: relative;
+    background-color: var(--bg-color);
+    border: var(--main-color) 3px solid;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    padding: 10px;
+    margin: 20px;
+    width: 50%;
+    max-width: 400px;
+    height: 55%;
+    max-height: 400px;
+    justify-items: center;
+}
+h1{
+    text-align: center;
+    font-size: 2em;
+}
+ul{
+    background-position: 10px;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+form{
+    display: grid;
+    background-color: var(--bg-color);
+    border:var(--main-color) 3px solid;
+    border-radius: 10px;
+    height: 55%;
+    width: fit-content;
+}
+div{
+    display: grid;
+    grid-template-columns: 0.5fr 1fr;
+    padding: 10px;
+    align-items: center;
+    justify-items: center;
+}
+label{
+    text-align: center;
+    width: fit-content;
+    height: fit-content;
+}
+input{
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid var(--main-color);
+    height: 10px;
+    width: fit-content;
+}
+button{
+    background-color: var(--main-color);
+    color: var(--bg-color);
+    width: 50%;
+    border: none;
+    border-radius: 20px;
+    padding: 10px 20px;
+    margin: 10px auto;
+    cursor: pointer;
+}
+table{
+    text-align: center;
+    border: 3px solid var(--main-color);
+    width: 100%;
+    height: 55%;
+}
+th{
+    background-color: var(--main-color);
+    color: var(--bg-color);
+    padding: 0.5em;
+}
+td{
+    border: var(--main-color) 1px solid;
+    padding: 0.5em;
+}
+footer{
+    color: #ff0000;
+    text-align: center;
+    width: 30%;
+    margin: 0 auto;
+}

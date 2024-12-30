@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="litcup HTML 和 CSS 的簡單語法練習">
+    <link rel="stylesheet" href="Practice1.css">
+    <title>Practice-1</title>
+</head>
+<body>
+    <header>
+        <h1>Practice-1</h1>
+        <nav class="menu">
+            <a href="#">首頁</a>
+            <a href="#">註冊</a>
+        </nav>
+    </header>
+    <section>
+        <article class="form-section">
+            <h1>簡單註冊表單</h1>
+            <ul>
+                <li>收集用戶輸入</li>
+                <li>包含姓名、電子郵件、密碼欄位</li>
+            </ul>
+            <br>
+            <form>
+                <div>
+                    <label class="email-title" for="email">電子郵件:</label>
+                    <input type="email" id="email" name="email">
+                </div>
+                <div>
+                    <label class="name-title" for="name">姓名:</label>
+                    <input type="text" id="name" name="name">
+                </div>
+                <div>
+                    <label class="password-title" for="password">密碼:</label>
+                    <input type="password" id="password" name="password">
+                </div>
+                <button class="button" type="submit">送出</button>
+            </form>
+        </article>
+        <article class="table-section">
+            <h1>表格展示數據</h1>
+        <ul>
+            <li>練習表格展示數據(3X4)</li>
+            <li>包含名稱、年齡、職稱、城市</li>
+        </ul>
+        <br>
+        <table>
+            <thead>
+                <tr>
+                    <th scope="col">名稱</th>
+                    <th scope="col">年齡</th>
+                    <th scope="col">職稱</th>
+                    <th scope="col">城市</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>John</td>
+                    <td>25</td>
+                    <td>Engineer</td>
+                    <td>Taipei</td>
+                </tr>
+                <tr>
+                    <td>Tom</td>
+                    <td>30</td>
+                    <td>Designer</td>
+                    <td>Taichung</td>
+                </tr>
+                <tr>
+                    <td>Mary</td>
+                    <td>22</td>
+                    <td>Student</td>
+                    <td>Tainan</td>
+                </tr>
+            </tbody>
+        </table>
+        </article>
+    </section>
+    <footer>
+        <p>litcup HTML 和 CSS 的簡單語法練習</p>
+    </footer>
+</body>
+</html>
