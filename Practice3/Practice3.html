@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="Practice3.css"  rel="stylesheet" ">
+    <script src="Practice3.js" defer></script>
+    <title>Rractice3</title>
+</head>
+<body>
+    <header>
+        <h1>Practice3</h1>
+        <p> RWD&Enhanced + 新增靜態顯示註冊表單</p>
+        <nav>
+            <ul>
+                <li><a href="#">首頁</a></li>
+                <li><a href="#">註冊</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section class="form-section">
+                <h1>簡單註冊表單</h1>
+                <form class="register-form">
+                    <div class="left-column">
+                        <label for="name">姓名:</label>
+                        <input type="text" id="name" name="name" required>
+                        <label for="email">Email:</label>
+                        <input type="email" id="email" name="email" required>
+                        <label for="password">密碼:</label>
+                        <input type="password" id="password" name="password" required>
+                        <label for="confirm-password">確認密碼:</label>
+                        <input type="password" id="confirm-password" name="confirm-password" required>
+                    </div>
+                    <div class="right-column">
+                        <label for="Phone">電話:</label>
+                        <input type="text" id="Phone" name="Phone" pattern="[0-9]{10}" required>
+                        <label>性別:</label>
+                        <div class="gender">
+                            <input type="radio" id="male" name="gender" value="male" required>
+                            <label for="male">男</label>
+                            <input type="radio" id="female" name="gender" value="female" required>
+                            <label for="female">女</label>
+                        </div>
+
+                        <label>興趣:</label>
+                        <div class="habit">
+                            <input type="checkbox" id="coding" name="habit">
+                            <label for="coding">寫程式</label>
+                            <input type="checkbox" id="music" name="habit">
+                            <label for="music">聽音樂</label>
+                            <input type="checkbox" id="reading" name="habit">
+                            <label for="reading">看書</label>
+                            <div class="other">
+                                <input type="checkbox" id="other" name="other-habit">
+                                <label for="other">其他:</label>
+                                <input type="text" id="other-habit" name="other">
+                            </div>
+                        </div>
+                    </div>
+                    <button type="submit">送出</button>
+                </form>
+        </section>
+        <section class="table-section">
+            <h1>註冊資料</h1>
+            <table class="responsive-table">
+                <thead>
+                    <tr>
+                        <th>姓名</th>
+                        <th>Email</th>
+                        <th>性別</th>
+                        <th>興趣</th>
+                        <th>電話</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>John Doe</td>
+                        <td>john@example.com</td>
+                        <td>男性</td>
+                        <td>程式設計, 音樂</td>
+                        <td>0912345678</td>
+                    </tr>
+                    <tr>
+                        <td>Jane Smith</td>
+                        <td>jane@example.com</td>
+                        <td>女性</td>
+                        <td>音樂</td>
+                        <td>0987654321</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+    </main>
+    <footer>
+        <p>litcup HTML 和 CSS 的簡單語法練習</p> 
+    </footer>
+</body>
+</html>

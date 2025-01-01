@@ -1,0 +1,202 @@
+:root {
+    --main-color: #a10303;
+    --bg-color: #ffffff;
+}
+
+header, footer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    flex-direction: column;
+    background-color: var(--main-color);
+    color: white;
+    font-size: 20px;
+    padding: 10px 0;
+    text-align: center;
+}
+header nav ul {
+    display: flex;
+    justify-content: space-evenly;
+    list-style-type: none;
+    font-size: 20px;
+    font-weight: bold;
+    padding: 0;
+    margin: 10px 0;
+}
+body {
+    display: flex;
+    flex-direction: column;
+    font-family: Arial, sans-serif;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9;
+}
+main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1;
+    padding: 20px;
+}
+.form-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+.form-section h1 {  
+    color: var(--main-color);
+    writing-mode: vertical-lr;
+    text-orientation: upright;
+    font-size: 50px
+}
+.register-form {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-auto-rows: minmax(100px, auto);
+    gap: 20px;
+    padding: 20px;
+    border: 2px solid var(--main-color);
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: #f9f9f9;
+}
+.left-column {
+    display: flex;
+    flex-direction: column;
+    grid-column: 1 / 2;
+    grid-row: 1 / 3;    
+}
+.right-column {
+    display: flex;
+    flex-direction: column;
+    grid-column: 2 / 3;
+    grid-row: 1 / 3;
+}
+.form-section button {
+    grid-column: 1 / 3;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 30px;
+    background-color: gray;
+    color: white;
+    cursor: not-allowed;
+    font-size: 20px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+label {
+    margin: 10px 0 5px;
+    font-size: 20px;
+}
+
+input{
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 3px solid #ccc;
+    border-radius: 30px;
+}
+
+button:enabled {
+    background-color: var(--main-color);
+    cursor: pointer;
+}
+.table-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: #f9f9f9;
+}
+.table-section h1 {  
+    writing-mode: vertical-lr;
+    text-orientation: upright;
+    color: var(--main-color);
+    font-size: 50px
+}
+/* 表格樣式 */
+.responsive-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-size: 16px;
+    text-align: left;
+}
+
+.responsive-table th, .responsive-table td {
+    border: 1px solid var(--main-color);
+    padding: 8px;
+}
+
+.responsive-table th {
+    background-color: var(--main-color);
+    color: #ffffff;
+}
+
+/* 小屏幕轉卡片式樣式 */
+@media (max-width: 768px) {
+    .form-section {
+        display: flex;
+        flex-direction: column;
+    }
+    .form-section h1 {
+        writing-mode: horizontal-tb;
+        text-orientation: mixed;
+        font-size: 30px;
+        margin: 0 auto;
+    }
+    .register-form {
+        display: flex;
+        flex-direction: column;
+    }
+    .table-section{
+        display: flex;
+        flex-direction: column;
+    }
+    .table-section h1 {
+        writing-mode: horizontal-tb;
+        text-orientation: mixed;
+        font-size: 30px;
+        margin: 0 auto;
+    }
+    .responsive-table {
+        display: block;
+    }
+    
+    .responsive-table thead{
+        display: none;
+    }
+
+    .responsive-table tbody tr {
+        display: block;
+        margin-bottom: 20px;
+        border: 1px solid #ddd;
+        border-radius: 10px;
+        padding: 10px;
+        background-color: #f9f9f9;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+    .responsive-table tbody tr td {
+        display: flex;
+        justify-content: flex-start;
+        padding: 10px 0;
+        border: none;
+    }
+
+    .responsive-table tbody tr td:before {
+        content:attr(data-label); 
+        font-weight: bold;
+        text-transform: capitalize;
+        margin-right: 10px;
+    }
+}
