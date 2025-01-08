@@ -1,29 +1,50 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="Tw">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CYTlit-cup</title>
+    <link href="Main.css" rel="stylesheet">
+    <link rel="icon" href="./media/lit3.1 1.svg" type="image/svg">
+    <script src="./js/language-select.js" defer></script>
+
 </head>
 <body>
     <header>
-        <lu>
-            <li><a href="#">關於我</a></li>
-            <li><a herf="#">學習與經歷</a></li>
-            <li><a herf="#">作品集</a></li>
-            <img src="./media/Vector.svg"></img>
-        </lu>
+        <nav class="guideline">
+            <ul>
+                <li><a href="#about-me">關於我</a></li>
+                <li><a href="#timeline">學習與經歷</a></li>
+                <li><a href="#Project">作品集</a></li>
+                <div class="language-select">
+                    <div class="select-selected">
+                        <img src="./media/translate.svg" alt="icon">
+                    </div>
+                    <div class="select-items">
+                        <div data-lang="zh">
+                            <img src="./media/TW.svg" alt="icon">
+                        </div>
+                        <div data-lang="en">
+                            <img src="./media/EN.svg" alt="icon">
+                        </div>
+                        <div data-lang="ja">
+                            <img src="./media/JP.svg" alt="icon">
+                        </div>
+                    </div>
+                </div> 
+            <ul>
+        </nav>   
     </header>
     <main>
-        <section class="about-me">
-            <img src="./media/lit3.0.png" height="300px" width="300px">
+        <section class="about-me" id="about-me">
+            <img src="./media/lit3.1 1.svg" class="shadow-img flicker" height="300px" width="300px">
             <article>
-                <h2>陳奕廷</h2>
-                <h2>前端開發者</h2>
-                <p>專注於學習前端的開發，走在成為專業的前端工程師路上。 擅長 HTML、CSS、JavaScript，致力於設計高效且響應式的網頁。目標是在未來加入一家科技公司，成為出色的前端工程師。</p>
+                <h1>陳奕廷</h1>
+                <h1>前端開發者</h1>
+                <p><strong>專注於學習前端的開發</strong>，走在成為專業的前端工程師路上。 擅長 HTML、CSS、JavaScript，致力於設計高效且響應式的網頁。目標是在未來加入一家科技公司，成為出色的前端工程師。</p>
             </article>
         </section>
-        <section class="timeline">
+        <section class="timeline" id="timeline">
             <div class="2020">
                 <h2>2020</h2>
                 <ul class="skill-level">
@@ -76,7 +97,7 @@
                 </ul>
             </div>
         </section>
-        <section class="Project">
+        <section class="Project" id="Project">
             <article>
                 <h3>專案名稱</h3>
                 <p>標題開頭</p>
@@ -94,15 +115,21 @@
             </article>
         </section>
         <footer>
-            <h1>聯繫方式:</h1>
-            <ul>
-                <li>Email:     spu76611@gmail.com</li>
-                <li>Github:   https://github.com/lit-cup</li>
-                <li>LinkedIn: (building)</li>
-                <li>個人網站: (building)</li>
-            </ul>
-            <h2>歡迎聯繫我或查看我的作品集，期待與您合作!!</h2>
-            <p>© 2025 陳奕廷. All rights reserved.</p>
+            <div class="footer-up">
+                <address class="content">
+                    <h3>聯繫方式:</h3>
+                    <ul>
+                        <li>Email:spu76611@gmail.com</li>
+                        <li>Github:<a href = "https://github.com/lit-cup" target="_blank">lit-cup</a></li>
+                        <li>LinkedIn:(building)</li>
+                        <li>個人網站:(building)</li>
+                    </ul>
+                </address>
+                <h2>歡迎聯繫我或查看我的作品集，期待與您合作!!</h2>
+            </div>
+            <div class="copyright">
+                <p>© 2025 陳奕廷. All rights reserved.</p>
+            </div>
         </footer>
     </main>
 </body>
