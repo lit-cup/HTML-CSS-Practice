@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="Tw">
+<html lang="zh-TW">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,7 +12,7 @@
 <body>
     <header>
         <nav class="guideline">
-            <ul>
+            <div class="guideline-head">
                 <li><a href="#about-me">關於我</a></li>
                 <li><a href="#timeline">學習與經歷</a></li>
                 <li><a href="#Project">作品集</a></li>
@@ -32,7 +32,7 @@
                         </div>
                     </div>
                 </div> 
-            <ul>
+            </div> <!-- 修正這裡的 ul 標籤 -->
         </nav>   
     </header>
     <main>
@@ -41,60 +41,68 @@
             <article>
                 <h1>陳奕廷</h1>
                 <h1>前端開發者</h1>
-                <p><strong>專注於學習前端的開發</strong>，走在成為專業的前端工程師路上。 擅長 HTML、CSS、JavaScript，致力於設計高效且響應式的網頁。目標是在未來加入一家科技公司，成為出色的前端工程師。</p>
+                <p><strong>專注於學習前端的開發</strong>，走在成為專業的前端工程師路上。 
+                    擅長 HTML、CSS、JavaScript，致力於設計高效且響應式的網頁。目標是在
+                    未來加入一家科技公司，成為出色的前端工程師。</p>
             </article>
         </section>
         <section class="timeline" id="timeline">
-            <div class="2020">
-                <h2>2020</h2>
-                <ul class="skill-level">
-                    <li>C/C++</li>
-                    進度條
-                    <li>Java</li>
-                    進度條
-                    <li>HTML/CSS</li>
-                    進度條
-                </ul>
-                <ul class="Experience">
-                    <li>學習C、C++</li>
-                    <p>完成基本程式邏輯訓練、資料結構</p>
-                    <li>學習Java</li>
-                    <p>掌握物件導向設計。</p>
-                    <li>學習HTML/CSS</li>
-                    <p>掌握基本程式語法。</p>
-                </ul>
+            <div class ="timeline-2020">
+                <div class="timeline-year">2020</div>
+                <div class="timeline-item">
+                    <div class="timeline-skill-level">
+                        <li>C/C++</li>
+                        進度條
+                        <li>Java</li>
+                        進度條
+                        <li>HTML/CSS</li>
+                        進度條
+                    </div>
+                    <div class="timeline-contnet">
+                        <li>學習C、C++</li>
+                        <p>完成基本程式邏輯訓練、資料結構</p>
+                        <li>學習Java</li>
+                        <p>掌握物件導向設計。</p>
+                        <li>學習HTML/CSS</li>
+                        <p>掌握基本程式語法。</p>
+                    </div>
+                </div>
             </div>
-            <div class="2022">
-                <h2>2022</h2>
-                <ul class="skill-level">
-                    <li>Python</li>
-                    進度條
-                    <li>Linux環境</li>
-                    進度條
-                </ul>
-                <ul class="Experience">
-                    <li>學習Python</li>
-                    <p>掌握數據分析技巧</p>
-                    <li> 完成大學專題 - 智慧鐵捲門系統</li>
-                    <p>掌握 Linux 環境安裝、開發。
-                        Android Studio 協助開發專用APP。
-                        規劃設計MQTT通訊協定</p>
-                </ul>
+            <div class="timeline-2022">
+                <div class="timeline-year">2022</div>
+                <div class="timeline-item">
+                    <div class="timeline-skill-level">
+                        <li>Python</li>
+                        進度條
+                        <li>Linux環境</li>
+                        進度條
+                    </div>
+                    <div class="timeline-contnet">
+                        <li>學習Python</li>
+                        <p>掌握數據分析技巧</p>
+                        <li> 完成大學專題 - 智慧鐵捲門系統</li>
+                        <p>掌握 Linux 環境安裝、開發。
+                            Android Studio 協助開發專用APP。
+                            規劃設計MQTT通訊協定</p>
+                    </div>
+                </div>
             </div>
-            <div class="2024">
-                <h2>2024</h2>
-                <ul class="skill-level">
-                    <li>JavaScript</li>
-                    進度條
-                    <li>ReactJS</li>
-                    進度條
-                </ul>
-                <ul class="Experience">
-                    <li>學習JavaScript、ReactJS</li>
-                    <p>基本語法以及案例</p>
-                    <li>學習響應試網站設計</li>
-                    <p>建立自己的個人網站、部屬 Github Page</p>
-                </ul>
+            <div class="timeline-2024">
+                <div class="timeline-year">2024</div>
+                <div class="timeline-item">
+                    <div class="timeline-skill-level">
+                        <li>JavaScript</li>
+                        進度條
+                        <li>ReactJS</li>
+                        進度條
+                    </div>
+                    <div class="timeline-contnet">
+                        <li>學習JavaScript、ReactJS</li>
+                        <p>基本語法以及案例</p>
+                        <li>學習響應試網站設計</li>
+                        <p>建立自己的個人網站、部屬 Github Page</p>
+                    </div>
+                </div>
             </div>
         </section>
         <section class="Project" id="Project">
@@ -129,7 +137,6 @@
             </div>
             <div class="copyright">
                 <p>© 2025 陳奕廷. All rights reserved.</p>
-            </div>
         </footer>
     </main>
 </body>

@@ -21,5 +21,6 @@ document.addEventListener('DOMContentLoaded', () => {
           languageSelect.classList.remove('open');
         }
     });
+
     
 });
