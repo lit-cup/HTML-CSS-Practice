@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CYTlit-cup</title>
-    <link href="Main.css" rel="stylesheet">
+    <link href="home.css" rel="stylesheet">
     <link rel="icon" href="./media/lit3.1 1.svg" type="image/svg">
     <script src="./js/language-select.js" defer></script>
 
@@ -12,8 +12,8 @@
 <body>
     <header>
         <nav class="guideline">
-            <div class="guideline-head">
-                <li><a href="#about-me">關於我</a></li>
+            <div class="menu">
+                <li><a href="#about-me" class="active">關於我</a></li>
                 <li><a href="#timeline">學習與經歷</a></li>
                 <li><a href="#Project">作品集</a></li>
                 <div class="language-select">
@@ -31,8 +31,8 @@
                             <img src="./media/JP.svg" alt="icon">
                         </div>
                     </div>
-                </div> 
-            </div> <!-- 修正這裡的 ul 標籤 -->
+                </div>
+            </div>
         </nav>   
     </header>
     <main>
@@ -48,15 +48,26 @@
         </section>
         <section class="timeline" id="timeline">
             <div class ="timeline-2020">
-                <div class="timeline-year">2020</div>
                 <div class="timeline-item">
                     <div class="timeline-skill-level">
-                        <li>C/C++</li>
-                        進度條
-                        <li>Java</li>
-                        進度條
-                        <li>HTML/CSS</li>
-                        進度條
+                        <div class="skill">
+                            <li>C/C++</li>
+                            <div class="progress-bar">
+                                <div class="progress" style="width: 80%;"></div>
+                            </div>
+                        </div>
+                        <div class="skill">
+                            <li>Java</li>
+                            <div class="progress-bar">
+                                <div class="progress" style="width: 70%;"></div>
+                            </div>
+                        </div>
+                        <div class="skill">
+                            <li>HTML/CSS</li>
+                            <div class="progress-bar">
+                                <div class="progress" style="width: 90%;"></div>
+                            </div>
+                        </div>
                     </div>
                     <div class="timeline-contnet">
                         <li>學習C、C++</li>
@@ -69,13 +80,20 @@
                 </div>
             </div>
             <div class="timeline-2022">
-                <div class="timeline-year">2022</div>
                 <div class="timeline-item">
                     <div class="timeline-skill-level">
-                        <li>Python</li>
-                        進度條
-                        <li>Linux環境</li>
-                        進度條
+                        <div class="skill">
+                            <li>Python</li>
+                            <div class="progress-bar">
+                                <div class="progress" style="width: 85%;"></div>
+                            </div>
+                        </div>
+                        <div class="skill">
+                            <li>Linux環境</li>
+                            <div class="progress-bar">
+                                <div class="progress" style="width: 75%;"></div>
+                            </div>
+                        </div>
                     </div>
                     <div class="timeline-contnet">
                         <li>學習Python</li>
@@ -88,13 +106,20 @@
                 </div>
             </div>
             <div class="timeline-2024">
-                <div class="timeline-year">2024</div>
                 <div class="timeline-item">
                     <div class="timeline-skill-level">
-                        <li>JavaScript</li>
-                        進度條
-                        <li>ReactJS</li>
-                        進度條
+                        <div class="skill">
+                            <li>JavaScript</li>
+                            <div class="progress-bar">
+                                <div class="progress" style="width: 70%;"></div>
+                            </div>
+                        </div>
+                        <div class="skill">
+                            <li>ReactJS</li>
+                            <div class="progress-bar">
+                                <div class="progress" style="width: 30%;"></div>
+                            </div>
+                        </div>
                     </div>
                     <div class="timeline-contnet">
                         <li>學習JavaScript、ReactJS</li>
@@ -125,18 +150,19 @@
         <footer>
             <div class="footer-up">
                 <address class="content">
-                    <h3>聯繫方式:</h3>
+                    <h3>聯繫方式</h3>
                     <ul>
-                        <li>Email:spu76611@gmail.com</li>
-                        <li>Github:<a href = "https://github.com/lit-cup" target="_blank">lit-cup</a></li>
-                        <li>LinkedIn:(building)</li>
-                        <li>個人網站:(building)</li>
+                        <li>Email:  stuart.yitingchen@gmail.com</li>
+                        <li>Github:<a href = "https://github.com/lit-cup" target="_blank">  lit-cup</a></li>
+                        <li>LinkedIn:   (building)</li>
+                        <li>個人網站:   (building)</li>
                     </ul>
                 </address>
                 <h2>歡迎聯繫我或查看我的作品集，期待與您合作!!</h2>
             </div>
             <div class="copyright">
-                <p>© 2025 陳奕廷. All rights reserved.</p>
+                <p>©2025 lit-cup. All rights reserved.</p>
+            </div>
         </footer>
     </main>
 </body>
