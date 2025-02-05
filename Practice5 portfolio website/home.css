@@ -200,32 +200,23 @@ nav .menu li a:hover::after {
     width: 100%;
     margin: 0 0 0 0;
 }
-
 .timeline-2020::before{
     display: absolute;
     width: 20%;
     height: 80%;
-    margin: 0 0 0 15%;
-    padding: 10px 7% 10px 7%; 
+    margin: 0 0 0 19%;
+    padding: 12px;
     content: "2020";
     font-size: 95px;
     font-weight: 900;
+    text-align: center;
     text-shadow: 0px 4px 4px var(--text-shadow-color);
     border-radius: 30px;
-    border: 5px solid var(--timeline-year-color-2020);
     background-color: var(--timeline-year-color-2020);
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
-.timeline-2020 .timeline-item{
-    display: grid;
-    grid-template-columns: 200px 650px;
-    column-gap: 100px;
-    align-items: center;
-    margin-left: 300px;
-    justify-content: left;
-}
-.timeline-2020 .timeline-contnet{
-    margin: 100px;
+.timeline-2020 .timeline-contnet .content{
+    background-color: var(--timeline-year-color-2020);
 }
 .timeline-2022{
     display: flex;  
@@ -239,27 +230,19 @@ nav .menu li a:hover::after {
     display: absolute;
     width: 20%;
     height: 80%;
-    margin: 0 0 0 15%;
-    padding: 10px 7% 10px 7%; 
+    margin: 0 0 0 19%;
+    padding: 12px;
     content: "2022";
     font-size: 95px;
     font-weight: 900;
+    text-align: center;
     text-shadow: 0px 4px 4px var(--text-shadow-color);
     border-radius: 30px;
     background-color: var(--timeline-year-color-2022);
-    border: 5px solid var(--timeline-year-color-2022);
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
-.timeline-2022 .timeline-item{
-    display: grid;
-    grid-template-columns: 200px 650px;
-    column-gap: 100px;
-    align-items: center;
-    margin-left: 300px;
-    justify-content: left;
-}
-.timeline-2022 .timeline-contnet{
-    margin: 100px;
+.timeline-2022 .timeline-contnet .content{
+    background-color: var(--timeline-year-color-2022);
 }
 .timeline-2024{
     display: flex;  
@@ -273,38 +256,42 @@ nav .menu li a:hover::after {
     display: absolute;
     width: 20%;
     height: 80%;
-    margin: 0 0 0 15%;
-    padding: 10px 7% 10px 7%; 
+    margin: 0 0 0 19%;
+    padding: 12px;
     content: "2024";
     font-size: 95px;
     font-weight: 900;
+    text-align: center;
     text-shadow: 0px 4px 4px var(--text-shadow-color);
     border-radius: 30px;
     background-color: var(--timeline-year-color-2024);
-    border: 5px solid var(--timeline-year-color-2024);
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
-.timeline-2024 .timeline-item{
+.timeline-2024 .timeline-contnet .content{
+    background-color: var(--timeline-year-color-2024);
+}
+.timeline-contnet .content{
+    margin-left: 100px;
+    margin-bottom: 15px;
+    padding: 25px;
+    list-style-type: none;
+    border-radius: 30px;
+}
+.content li{
+    margin-bottom: 20px;
+    font-weight: 900;
+    font-size: 1.3rem;
+}
+.timeline-item{
+    margin-top: 40px;
+    height: 450px;
+    width: fit-content;
     display: grid;
     grid-template-columns: 200px 650px;
     column-gap: 100px;
-    align-items: center;
-    margin-left: 300px;
-    justify-content: left;
-}
-.timeline-2024 .timeline-contnet{
-    margin: 100px;
-}
-.timeline-item{
-    height: 400px;
-}
-.timeline-contnet{
-    margin: 30px;
-    padding-left: 14%;
-}
-.timeline-skill-level {
-    margin: 20px 30px;
-    padding-left: 14%;
+    align-items: start;
+    margin-left: 250px;
+    justify-content: left
 }
 
 .skill {
@@ -312,33 +299,41 @@ nav .menu li a:hover::after {
 }
 .skill li{
     display: flex;
-    font-size: 20px;
+    font-size: 1rem;
 }
 .progress-bar {
     width: 100%;
-    background-color: #e0e0e0;
+    background-color: var(--background-color);
     border-radius: 10px;
     overflow: hidden;
     margin-top: 5px;
 }
 
-.timeline-2020 .progress {
-    height: 20px;
+.progress {
+    height: 10px;
+    background-color: var(--text-color);
+    border-radius: 10px;
+    transition: width 0.5s ease;
+}
+.timeline-2020 .timeline-item .timeline-skill-level{
+    padding: 30px;
+    border-radius: 30px;
+    width: 70%;
     background-color: var(--timeline-year-color-2020);
-    border-radius: 10px;
-    transition: width 0.5s ease;
 }
-.timeline-2022 .progress {
-    height: 20px;
+
+.timeline-2022 .timeline-item .timeline-skill-level{
+    padding: 30px;
+    border-radius: 30px;
+    width: 70%;
     background-color: var(--timeline-year-color-2022);
-    border-radius: 10px;
-    transition: width 0.5s ease;
 }
-.timeline-2024 .progress {
-    height: 20px;
+
+.timeline-2024 .timeline-item .timeline-skill-level{
+    padding: 30px;
+    border-radius: 30px;
+    width: 70%;
     background-color: var(--timeline-year-color-2024);
-    border-radius: 10px;
-    transition: width 0.5s ease;
 }
 
 .Project{
