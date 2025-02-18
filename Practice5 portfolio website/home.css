@@ -1,47 +1,91 @@
-:root{
-    --primary-color: #FF5733;
-    --background-color: #FDFBF8;
-    --second-color: #F5F5F5; /* 修正變數名稱 */
-    --background-bar-color: rgba(253, 251, 248, 0.45);
-    --text-shadow-color: rgba(0, 0, 0, 30%);
-    --text-color: #333333;
-    --heading-color: #222222;
-    --timeline-year-color-2020: yellow;
-    --timeline-year-color-2022: #FE9F01;
-    --timeline-year-color-2024: #FE8701;
-    --project-bgd-color: rgba(255, 87, 51, 0.1);
-    --project-article-bgd-color: rgba(225, 87, 51, 30%);
+:root {
+    --color-primary: #FF5733;
+    --color-background: #FDFBF8;
+    --color-secondary: #F5F5F5;
+    --color-text: #333333;
+    --color-text-shadow: rgba(0, 0, 0, 0.3);
+    --timeline-2020: yellow;
+    --timeline-2022: #FE9F01;
+    --timeline-2024: #FE8701;
+    --opacity-bg: 0.45;
+    --opacity-shadow: 0.3;
+    --spacing-xs: 0.5rem;
+    --spacing-sm: 1rem;
+    --spacing-md: 1.5rem;
+    --spacing-lg: 2rem;
+    --font-size-sm: 0.875rem;
+    --font-size-base: 1rem;
+    --font-size-lg: 1.25rem;
+    --font-size-xl: 1.5rem;
+    --border-radius-sm: 10px;
+    --border-radius-md: 20px;
+    --border-radius-lg: 30px;
+    --color-project-bg: rgba(255, 87, 51, 0.1);
+    --color-project-article-bg: rgba(225, 87, 51, 0.3);
+    --animation-duration: 1s;
+    --animation-timing: ease-in-out;
+    --transform-3d: translate3d(0, 0, 0);
+    --gpu-acceleration: perspective(1000px);
 }
 
-body {
-    background-color: var(--background-color);
-    font-family: "Poppins", "Roboto", sans-serif;
-    margin: 0;
-    height: 100vh;
-}
-main{
-    width: 100%;
+.performance-optimized {
+    transform: var(--transform-3d);
+    backface-visibility: hidden;
+    perspective: var(--gpu-acceleration);
+    will-change: transform, opacity;
 }
 
-header::before{
-    content: "";
-    position: absolute;
-    width: 100%;
-    height: 20%; 
-    z-index: -1;
-    background: radial-gradient(ellipse at bottom, #FDFBF8 70%, var(--primary-color) 300%);
-}
-.guideline {
-    position: fixed; 
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 1000; 
+.flex-center {
     display: flex;
     justify-content: center;
     align-items: center;
 }
-nav .menu{
+
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 16px;
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--color-background);
+    font-family: "Poppins", "Roboto", sans-serif;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    margin: 0;
+    height: 100vh;
+}
+
+main {
+    width: 100%;
+}
+
+header::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 20%;
+    z-index: -1;
+    background: radial-gradient(ellipse at bottom, #FDFBF8 70%, var(--color-primary) 300%);
+}
+
+.guideline {
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+nav .menu {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -51,19 +95,22 @@ nav .menu{
     background: linear-gradient(to right, #ffffff80, #ffffff20);
     backdrop-filter: blur(5px);
 }
-nav .menu li{
-    margin: 15px 40px 15px 40px;
+
+nav .menu li {
+    margin: 15px 40px;
 }
+
 nav .menu li a {
-    position: relative; 
+    position: relative;
     font-size: 25px;
     font-weight: 900;
     text-decoration: none;
     text-align: center;
-    color: var(--primary-color);
-    text-shadow: 0px 4px 10px var(--text-shadow-color);
+    color: var(--color-primary);
+    text-shadow: 0px 4px 10px var(--color-text-shadow);
 }
-nav .menu li a::after { 
+
+nav .menu li a::after {
     content: '';
     position: absolute;
     width: 100%;
@@ -72,16 +119,16 @@ nav .menu li a::after {
     bottom: -5px;
     left: 0;
     border-radius: 20px;
-    background-color: var(--primary-color);
+    background-color: var(--color-primary);
 }
 
 nav .menu li a.active::after,
-nav .menu li a:hover::after { 
+nav .menu li a:hover::after {
     transform: scaleX(0.5);
     transform-origin: center;
 }
 
-.language-select{
+.language-select {
     cursor: pointer;
     display: flex;
     flex-direction: column;
@@ -89,23 +136,26 @@ nav .menu li a:hover::after {
     width: 50px;
     height: 10px;
 }
-.select-selected img{
+
+.select-selected img {
     display: block;
     margin-bottom: 5px;
     width: 40px;
     height: 30px;
 }
-.language-select .select-items{
+
+.language-select .select-items {
     display: none;
     width: 40px;
     height: 0;
-    background-color: var(--second-color); /* 修正變數名稱 */
-    box-shadow: 0 5px 10px var(--text-shadow-color);
+    background-color: var(--color-secondary);
+    box-shadow: 0 5px 10px var(--color-text-shadow);
     border-radius: 20px;
 }
-.language-select .select-items div{
-    padding: 16px 16px;
-    cursor: pointer; 
+
+.language-select .select-items div {
+    padding: 16px;
+    cursor: pointer;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -116,194 +166,154 @@ nav .menu li a:hover::after {
     background-color: #ddd;
     border-radius: 50px;
 }
+
 .language-select .select-items div img {
     width: 40px;
-    height: 10px
+    height: 10px;
 }
 
-.language-select.open .select-items{
+.language-select.open .select-items {
     display: block;
 }
-.about-me{
+
+.about-me {
     display: flex;
     flex-direction: row;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     height: 50%;
-    margin: 0;
+    margin-left: 15%;
 }
-.about-me img{
+
+.about-me img {
+    width: 600px;
     height: auto;
-    width: auto;
-    margin-left: 130px;
-    
+    animation: flicker var(--animation-duration) infinite var(--animation-timing);
+    transform: var(--transform-3d);
+    will-change: transform, opacity;
 }
-.about-me article{
-    width: auto;
+
+@keyframes flicker {
+    0%, 100% {
+        opacity: 1;
+        transform: var(--transform-3d) scale(1);
+    }
+    50% {
+        opacity: 0.5;
+        transform: var(--transform-3d) scale(1.05);
+    }
+    75% {
+        opacity: 0.75;
+        transform: var(--transform-3d) scale(0.95);
+    }
+}
+
+.about-me article {
+    width: fit-content;
     height: auto;
-    margin-left: 100px;
 }
-.about-me article h1{
+
+.about-me article h1 {
     display: flex;
     flex-direction: column;
     margin: auto;
 }
+
 .about-me h1 {
     font-size: 40px;
-    color: var(--primary-color)
+    color: var(--color-primary);
 }
-.about-me strong{
-    color: var(--primary-color)
+
+.about-me strong {
+    color: var(--color-primary);
 }
+
 .about-me p {
     max-width: 50%;
 }
-@keyframes flicker {
-    0%, 100% {
-        opacity: 1;
-        transform: scale(1);
-    }
-    50% {
-        opacity: 0.5;
-        transform: scale(1.05);
-    }
-    75% {
-        opacity: 0.75;
-        transform: scale(0.95);
-    }
+
+.timeline-2020, .timeline-2022, .timeline-2024 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: baseline;
+    height: 100%;
+    width: 100%;
+    margin: 0;
 }
 
-.flicker {
-    animation: flicker 1s infinite ease-in-out;
-}
-.timeline{
-    height: 100%;
-    width: 100%;
-    margin: 0 0 0 0;
-}
-.timeline::before{
-    content: "";
-    position: absolute;
-    top: -15px;
-    margin-top: 35%;
-    margin-left: 28%;
-    align-self: center;
-    height: 190%;
-    z-index: -1;
-    border-left: 30px dotted var(--timeline-year-color-2024);
-}
-.timeline-2020{
-    display: flex;  
-    flex-direction: column;
-    justify-content: center;
-    height: 100%;
-    width: 100%;
-    margin: 0 0 0 0;
-}
-.timeline-2020::before{
+.timeline-2020::before, .timeline-2022::before, .timeline-2024::before {
     display: absolute;
     width: 20%;
     height: 80%;
-    margin: 0 0 0 19%;
-    padding: 12px;
+    margin: 0 0 0 20%;
+    padding: 10px;
+    font-size: 70px;
+    font-weight: 900;
+    text-align: center;
+    text-shadow: 0px 4px 4px var(--color-text-shadow);
+    border-radius: 30px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.timeline-2020::before {
     content: "2020";
-    font-size: 95px;
-    font-weight: 900;
-    text-align: center;
-    text-shadow: 0px 4px 4px var(--text-shadow-color);
-    border-radius: 30px;
-    background-color: var(--timeline-year-color-2020);
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    background-color: var(--timeline-2020);
 }
-.timeline-2020 .timeline-contnet .content{
-    background-color: var(--timeline-year-color-2020);
-}
-.timeline-2022{
-    display: flex;  
-    flex-direction: column;
-    justify-content: center;
-    height: 100%;
-    width: 100%;
-    margin: 0 0 0 0;
-}
-.timeline-2022::before{
-    display: absolute;
-    width: 20%;
-    height: 80%;
-    margin: 0 0 0 19%;
-    padding: 12px;
+
+.timeline-2022::before {
     content: "2022";
-    font-size: 95px;
-    font-weight: 900;
-    text-align: center;
-    text-shadow: 0px 4px 4px var(--text-shadow-color);
-    border-radius: 30px;
-    background-color: var(--timeline-year-color-2022);
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    background-color: var(--timeline-2022);
 }
-.timeline-2022 .timeline-contnet .content{
-    background-color: var(--timeline-year-color-2022);
-}
-.timeline-2024{
-    display: flex;  
-    flex-direction: column;
-    justify-content: center;
-    height: 100%;
-    width: 100%;
-    margin: 0 0 0 0;
-}
-.timeline-2024::before{
-    display: absolute;
-    width: 20%;
-    height: 80%;
-    margin: 0 0 0 19%;
-    padding: 12px;
+
+.timeline-2024::before {
     content: "2024";
-    font-size: 95px;
-    font-weight: 900;
-    text-align: center;
-    text-shadow: 0px 4px 4px var(--text-shadow-color);
-    border-radius: 30px;
-    background-color: var(--timeline-year-color-2024);
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    background-color: var(--timeline-2024);
 }
-.timeline-2024 .timeline-contnet .content{
-    background-color: var(--timeline-year-color-2024);
+
+.timeline-2020 .timeline-contnet .content,
+.timeline-2022 .timeline-contnet .content,
+.timeline-2024 .timeline-contnet .content {
+    background-color: var(--timeline-2020);
 }
-.timeline-contnet .content{
-    margin-left: 100px;
+
+.timeline-contnet .content {
+    margin-left: 70px;
     margin-bottom: 15px;
     padding: 25px;
     list-style-type: none;
-    border-radius: 30px;
+    border-radius: 50px;
 }
-.content li{
-    margin-bottom: 20px;
+
+.content li {
+    margin-bottom: 10px;
     font-weight: 900;
-    font-size: 1.3rem;
+    font-size: 1.5rem;
 }
-.timeline-item{
+
+.timeline-item {
     margin-top: 40px;
-    height: 450px;
+    height: 400px;
     width: fit-content;
     display: grid;
-    grid-template-columns: 200px 650px;
-    column-gap: 100px;
+    grid-template-columns: 300px 650px;
     align-items: start;
     margin-left: 250px;
-    justify-content: left
+    justify-content: left;
 }
 
 .skill {
     margin-bottom: 15px;
 }
-.skill li{
-    display: flex;
+
+.skill li {
+    list-style-type: none;
     font-size: 1rem;
 }
+
 .progress-bar {
     width: 100%;
-    background-color: var(--background-color);
+    background-color: var(--color-background);
     border-radius: 10px;
     overflow: hidden;
     margin-top: 5px;
@@ -311,104 +321,285 @@ nav .menu li a:hover::after {
 
 .progress {
     height: 10px;
-    background-color: var(--text-color);
+    background-color: var(--color-text);
     border-radius: 10px;
     transition: width 0.5s ease;
 }
-.timeline-2020 .timeline-item .timeline-skill-level{
+
+.timeline-2020 .timeline-item .timeline-skill-level,
+.timeline-2022 .timeline-item .timeline-skill-level,
+.timeline-2024 .timeline-item .timeline-skill-level {
     padding: 30px;
     border-radius: 30px;
     width: 70%;
-    background-color: var(--timeline-year-color-2020);
 }
 
-.timeline-2022 .timeline-item .timeline-skill-level{
-    padding: 30px;
-    border-radius: 30px;
-    width: 70%;
-    background-color: var(--timeline-year-color-2022);
+.timeline-2020 .timeline-item .timeline-skill-level {
+    background-color: var(--timeline-2020);
 }
 
-.timeline-2024 .timeline-item .timeline-skill-level{
-    padding: 30px;
-    border-radius: 30px;
-    width: 70%;
-    background-color: var(--timeline-year-color-2024);
+.timeline-2022 .timeline-item .timeline-skill-level {
+    background-color: var(--timeline-2022);
 }
 
-.Project{
+.timeline-2024 .timeline-item .timeline-skill-level {
+    background-color: var(--timeline-2024);
+}
+
+.Project {
     display: flex;
+    flex-direction: row;
     align-items: center;
     justify-content: center;
-    margin: 100px 0 50px 0;
+    margin: 40px;
     height: 600px;
-    width: 100%;
-}
-.Project::before{
-    content: "";
-    position: absolute;
-    z-index: -1;
     width: 95%;
-    height: 500px;
-    background: var(--project-bgd-color);
+    z-index: -1;
+    background: var(--color-project-bg);
     border-radius: 50px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
-.Project article{
+
+.Project article {
     display: flex;
     flex-direction: column;
-    background-color: var(--project-article-bgd-color);
-    text-shadow: 0px 4px 4px var(--text-shadow-color);
-    width: 400px;
-    height: 360px;
+    background-color: var(--color-project-article-bg);
+    text-shadow: 0px 4px 4px var(--color-text-shadow);
+    width: 80%;
+    height: 50%;
     padding: 30px;
-    margin: 50px;
+    margin: 70px;
     border-radius: 30px;
 }
-.Project h3{
+
+.Project h3 {
     margin: 0;
 }
-.Project p{
+
+.Project p {
     font-size: 40px;
     margin: 0;
 }
-footer{
+
+footer {
     display: flex;
     flex-direction: column;
-    background-color: var(--text-color);
-    color:var(--background-color);
+    background-color: var(--color-text);
+    color: var(--color-background);
     font-size: 20px;
-    padding: 30px 30px 0px 30px;
+    padding: 30px 30px 0;
 }
-.footer-up{
+
+.footer-up {
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: space-around;
     margin: 20px 20px 20px 0;
 }
-address{
+
+address {
     display: flex;
     flex-direction: column;
     width: 400px;
+    font-size: 20px;
 }
-.content ul{
+
+.content ul {
     list-style: none;
     padding: 0;
 }
-.content a{
-    text-decoration: none;
-    color: var(--primary-color);
+
+.content li {
+    margin-bottom: 10px;
+    font-size: 1.5rem;
 }
-footer h3{
+
+.content a {
+    text-decoration: none;
+    color: var(--color-primary);
+}
+
+footer h3 {
     text-align: left;
     margin: 0;
 }
-.copyright{
+
+.copyright {
     font-size: 12px;
     text-align: center;
 }
-/* 自訂整個滾動條的寬度和高度 */
-::-webkit-scrollbar {
-    display: none; 
+/* 1200px */
+@media (max-width: 75em) { 
+    .about-me {
+        flex-direction: row;
+        text-align: center;
+        margin-left: 0;
+    }
+    .about-me img {
+        width: 50%;
+        margin: 20px 0;
+    }
+    .about-me article {
+        width: 90%;
+        text-align: start;
+    }
+    .about-me p {
+        max-width: 95%;
+    }
+    .timeline-item {
+        margin-left: 0;
+        grid-template-columns: 150px 550px;
+    }
+    .timeline-2020::before,
+    .timeline-2022::before,
+    .timeline-2024::before {
+        width: 50%;
+        font-size: 50px;
+    }
+    .Project {
+        margin: 30px;
+        height: 400px;
+    }
+    .Project article {
+        width: 60%;
+        margin: 35px;
+    }
+    .footer-up {
+        font-size: 15px;
+    }
+}
+/* 768px */
+@media (max-width: 48em) {
+    .guideline {
+        transform: translateX(-25%);
+    }
+    nav .menu {
+        flex-direction: row;
+        margin: 20px;
+    }
+    nav .menu li {
+        margin: 10px;
+    }
+    nav .menu li a {
+        font-size: 20px;
+    }
+    .about-me h1 {
+        font-size: 30px;
+    }
+    .about-me p {
+        max-width: 85%;
+    }
+    .timeline-item {
+        grid-template-columns: 150px 350px;
+        height: auto;
+    }
+    .timeline-2020::before,
+    .timeline-2022::before,
+    .timeline-2024::before {
+        font-size: 40px;
+    }
+    .Project {
+        margin: 20px;
+        height: 300px;
+    }
+    .Project article {
+        width: 50%;
+        margin: 35px;
+    }
+    .Project h3 {
+        margin: 0;
+    }
+    .Project p {
+        font-size: 25px;
+        margin: 0;
+    }
+    .footer-up {
+        display: flex;
+        font-size: 1rem;
+    }
+    .content li {
+        font-size: 1rem;
+    }
+}
+/* 480px */
+@media (max-width: 30em) {
+    .guideline {
+        transform: translateX(-2%);
+    }
+    nav .menu {
+        flex-direction: row;
+        margin: 10px;
+    }
+    nav .menu li {
+        margin: 5px;
+    }
+    nav .menu li a {
+        font-size: 18px;
+    }
+    .about-me {
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+        margin-bottom: 10px;
+    }
+    .about-me img {
+        width: 70%;
+        margin: 5px 0;
+    }
+    .about-me h1 {
+        font-size: 20px;
+    }
+    .about-me article {
+        width: 90%;
+        text-align: center;
+    }
+    .about-me p {
+        max-width: 95%;
+        font-size: 12px;
+    }
+    .timeline-item {
+        grid-template-columns: 100px 250px;
+        height: auto;
+    }
+    .timeline-2020,
+    .timeline-2022,
+    .timeline-2024 {
+        align-items: start;
+        margin: 0 0 0 20px;
+    }
+    .timeline-2020::before,
+    .timeline-2022::before,
+    .timeline-2024::before {
+        font-size: 25px;
+        margin: 10px;
+    }
+    .Project {
+        margin: 10px;
+        height: 200px;
+    }
+    .Project article {
+        width: 80%;
+        margin: 20px;
+    }
+    .Project h3 {
+        font-size: 9px;
+        margin: 0;
+    }
+    .Project p {
+        font-size: 10px;
+        margin: 0;
+    }
+    .footer-up {
+        display: flex;
+        padding: 10px;
+        justify-content: space-between;
+        font-size: 0.8rem;
+    }
+    .content h2 {
+        margin-left: 10px;
+    }
+    .content li {
+        font-size: 0.7rem;
+    }
 }
