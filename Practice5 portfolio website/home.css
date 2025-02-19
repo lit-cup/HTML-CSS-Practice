@@ -256,27 +256,38 @@ nav .menu li a:hover::after {
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
-.timeline-2020::before {
+.timeline-2020::before{
     content: "2020";
     background-color: var(--timeline-2020);
 }
 
-.timeline-2022::before {
+.timeline-2022::before{
     content: "2022";
     background-color: var(--timeline-2022);
 }
 
-.timeline-2024::before {
+.timeline-2024::before{
     content: "2024";
     background-color: var(--timeline-2024);
 }
 
-.timeline-2020 .timeline-contnet .content,
-.timeline-2022 .timeline-contnet .content,
-.timeline-2024 .timeline-contnet .content {
+.timeline-2020 .timeline-contnet .content {
     background-color: var(--timeline-2020);
 }
 
+.timeline-2022 .timeline-contnet .content {
+    background-color: var(--timeline-2022);
+}
+
+.timeline-2024 .timeline-contnet .content {
+    background-color: var(--timeline-2024);
+}
+.timeline-2022 .timeline-contnet .content{
+    background-color: var(--timeline-2022);
+}
+.timeline-2022 .timeline-contnet .content{
+    background-color: var(--timeline-2024);
+}
 .timeline-contnet .content {
     margin-left: 70px;
     margin-bottom: 15px;
