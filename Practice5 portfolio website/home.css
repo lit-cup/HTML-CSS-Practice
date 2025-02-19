@@ -85,7 +85,15 @@ header::before {
     z-index: 1000;
 }
 
-nav .menu {
+nav .menu .selected-option{
+    display: none;
+}
+nav .menu{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+nav .menu .nav-links .menu-dropdown {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -97,6 +105,7 @@ nav .menu {
 }
 
 nav .menu li {
+    list-style: none;
     margin: 15px 40px;
 }
 
@@ -282,14 +291,9 @@ nav .menu li a:hover::after {
 .timeline-2024 .timeline-contnet .content {
     background-color: var(--timeline-2024);
 }
-.timeline-2022 .timeline-contnet .content{
-    background-color: var(--timeline-2022);
-}
-.timeline-2022 .timeline-contnet .content{
-    background-color: var(--timeline-2024);
-}
+
 .timeline-contnet .content {
-    margin-left: 70px;
+    margin-left: 10px;
     margin-bottom: 15px;
     padding: 25px;
     list-style-type: none;
@@ -310,7 +314,6 @@ nav .menu li a:hover::after {
     grid-template-columns: 300px 650px;
     align-items: start;
     margin-left: 250px;
-    justify-content: left;
 }
 
 .skill {
@@ -483,40 +486,79 @@ footer h3 {
 /* 768px */
 @media (max-width: 48em) {
     .guideline {
-        transform: translateX(-25%);
+        transform: translateX(-40%);
     }
-    nav .menu {
-        flex-direction: row;
-        margin: 20px;
-    }
-    nav .menu li {
-        margin: 10px;
+    nav .menu .nav-links{
+        justify-items: start;
+        width: 200px;
     }
     nav .menu li a {
         font-size: 20px;
+        text-align: start;
+    }
+    nav .menu .selected-option{
+        display: block;
+        cursor: pointer;
+        align-items: start;
+    }
+    nav .menu .selected-option::after{
+        display: none;
+    }
+    nav .menu .nav-links .menu-dropdown{
+        display: none;
+        position: absolute;
+        width: max-content;
+    }
+    nav .menu .nav-links:hover .menu-dropdown{
+        display: block;
+        width: 200px;
+        margin: 0px;
+        background: 0px;
+        backdrop-filter: blur(0px);
+    }
+
+    .language-select{
+        display: none;
+        padding: 20px;
+        width: 20px;
+        height: 5px;
+    }
+    .about-me img {
+        width: 100%;
+        margin: 20px 0;
     }
     .about-me h1 {
-        font-size: 30px;
+        font-size: var(--font-size-xl);
     }
     .about-me p {
         max-width: 85%;
+        margin: 10px 0;
+        font-size: var(--font-size-sm)
     }
     .timeline-item {
-        grid-template-columns: 150px 350px;
+        grid-template-columns: 250px 300px;
         height: auto;
+    }
+    .timeline-2020,
+    .timeline-2022,
+    .timeline-2024{
+        align-items: center;
     }
     .timeline-2020::before,
     .timeline-2022::before,
     .timeline-2024::before {
+        margin: 0 0 0 0;
         font-size: 40px;
     }
     .Project {
-        margin: 20px;
-        height: 300px;
+        flex-direction: column;
+        margin: 30px;
+        width: 90%;
+        height: 600px;
     }
     .Project article {
-        width: 50%;
-        margin: 35px;
+        width: 90%;
+        margin: 10px;
     }
     .Project h3 {
         margin: 0;

@@ -12,9 +12,14 @@
     <header>
         <nav class="guideline">
             <div class="menu">
-                <li><a href="#about-me" class="active">關於我</a></li>
-                <li><a href="#timeline">學習與經歷</a></li>
-                <li><a href="#Project">作品集</a></li>
+                <ul class="nav-links">
+                    <li><a href="#about-me-option" class="selected-option">關於我</a></li>
+                    <ul class="menu-dropdown">
+                        <li data-value="關於我"><a href="#about-me" class="active">關於我</a></li>
+                        <li data-value="學習與歷程"><a href="#timeline">學習與經歷</a></li>
+                        <li data-value="作品集"><a href="#Project">作品集</a></li>
+                    </ul>
+                </ul>
                 <div class="language-select">
                     <div class="select-selected">
                         <img src="./images/translate.svg" alt="icon">
@@ -35,7 +40,7 @@
         </nav>   
     </header>
     <main>
-        <section class="about-me" id="about-me">
+        <section class="about-me" data-value="關於我" id="about-me">
             <img src="./images/lit3.1 1.svg" class="flicker performance-optimized" height="300px" width="300px">
             <article>
                 <h1>陳奕廷</h1>
@@ -45,7 +50,7 @@
                     未來加入一家科技公司，成為出色的前端工程師。</p>
             </article>
         </section>
-        <section class="timeline" id="timeline">
+        <section class="timeline" data-value="學習與歷程" id="timeline">
             <div class ="timeline-2020">
                 <div class="timeline-item">
                     <div class="timeline-skill-level">
@@ -143,7 +148,7 @@
                 </div>
             </div>
         </section>
-        <section class="Project" id="Project">
+        <section class="Project" data-value="作品集" id="Project">
             <article>
                 <h3>專案名稱</h3>
                 <p>標題開頭</p>
