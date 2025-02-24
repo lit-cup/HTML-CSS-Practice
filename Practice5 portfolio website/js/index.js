@@ -1,10 +1,10 @@
 document.addEventListener('DOMContentLoaded', () => {
+    const selected = document.querySelector('.language-option');
+    const languageOptionItems = document.querySelector('.languageOption-items');
     const languageSelect = document.querySelector('.language-select');
     const menuSelect = document.querySelector('.nav-links');
     const selectedOption = document.querySelector(".about-me-selected-option");
     const dropdownItems = document.querySelectorAll(".menu-dropdown li")
-    const selected = document.querySelector('.language-option');
-    const languageOptionItems = document.querySelector('.languageOption-items');
     const menuItems = document.querySelectorAll('nav .menu li a');
     
     
@@ -73,4 +73,20 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
     
+});
+
+document.addEventListener("click", function (event) {
+    const selected = document.querySelector('.language-option');
+    const languageOptionItems = document.querySelector('.languageOption-items');
+    const languageSelect = document.querySelector('.language-select');
+    const menuSelect = document.querySelector('.nav-links');
+    const selectedOption = document.querySelector(".about-me-selected-option");
+    const dropdownItems = document.querySelectorAll(".menu-dropdown li")
+
+    if (!selected.contains(event.target) && !languageOptionItems.contains(event.target)) {
+        languageSelect.classList.remove("open");
+    }
+    if (!selectedOption.contains(event.target) && !Array.from(dropdownItems).some(item => item.contains(event.target))) {
+        menuSelect.classList.remove("active");
+    }
 });
