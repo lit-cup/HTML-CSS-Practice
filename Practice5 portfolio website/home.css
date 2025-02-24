@@ -13,7 +13,7 @@
     --spacing-sm: 1rem;
     --spacing-md: 1.5rem;
     --spacing-lg: 2rem;
-    --font-size-sm: 0.875rem;
+    --font-size-sm: 0.675rem;
     --font-size-base: 1rem;
     --font-size-lg: 1.25rem;
     --font-size-xl: 1.5rem;
@@ -48,7 +48,7 @@
 }
 
 html {
-    font-size: 16px;
+    font-size: clamp(10px, 5vw, 16px);
     scroll-behavior: smooth;
 }
 
@@ -59,10 +59,12 @@ body {
     -webkit-font-smoothing: antialiased;
     margin: 0;
     height: 100vh;
+    max-height: 950px;
 }
 
 main {
-    width: 100%;
+    width: 100vw;
+    max-width: 1920px;
 }
 
 header::before {
@@ -85,7 +87,7 @@ header::before {
     z-index: 1000;
 }
 
-nav .menu .selected-option{
+nav .menu .about-me-selected-option{
     display: none;
 }
 nav .menu{
@@ -111,7 +113,7 @@ nav .menu li {
 
 nav .menu li a {
     position: relative;
-    font-size: 25px;
+    font-size: clamp(20px, 5vw, 25px);
     font-weight: 900;
     text-decoration: none;
     text-align: center;
@@ -123,8 +125,8 @@ nav .menu li a::after {
     content: '';
     position: absolute;
     width: 100%;
+    height: 15%;
     transform: scaleX(0);
-    height: 5px;
     bottom: -5px;
     left: 0;
     border-radius: 20px;
@@ -141,47 +143,46 @@ nav .menu li a:hover::after {
     cursor: pointer;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    width: 50px;
-    height: 10px;
+    align-items: center;
+    width: 6%;
+    height: 6%;
 }
 
-.select-selected img {
+.language-option img {
     display: block;
-    margin-bottom: 5px;
-    width: 40px;
-    height: 30px;
+    width: 100%;
+    height: 100%;
+    margin-bottom: 10px;
 }
 
-.language-select .select-items {
+.language-select .languageOption-items {
     display: none;
-    width: 40px;
+    width: 100%;
     height: 0;
     background-color: var(--color-secondary);
     box-shadow: 0 5px 10px var(--color-text-shadow);
     border-radius: 20px;
 }
 
-.language-select .select-items div {
-    padding: 16px;
+.language-select .languageOption-items div {
     cursor: pointer;
     display: flex;
     justify-content: center;
     align-items: center;
+    height: 25px;
     z-index: 1000;
 }
 
-.language-select .select-items div:hover {
+.language-select .languageOption-items div:hover {
     background-color: #ddd;
-    border-radius: 50px;
+    border-radius: 30px;
 }
 
-.language-select .select-items div img {
-    width: 40px;
+.language-select .languageOption-items div img {
     height: 10px;
 }
 
-.language-select.open .select-items {
+.language-select.open .languageOption-items {
     display: block;
 }
 
@@ -195,7 +196,7 @@ nav .menu li a:hover::after {
 }
 
 .about-me img {
-    width: 600px;
+    width: 60%;
     height: auto;
     animation: flicker var(--animation-duration) infinite var(--animation-timing);
     transform: var(--transform-3d);
@@ -229,7 +230,7 @@ nav .menu li a:hover::after {
 }
 
 .about-me h1 {
-    font-size: 40px;
+    font-size: clamp(20px, 5vw, 40px); 
     color: var(--color-primary);
 }
 
@@ -238,26 +239,39 @@ nav .menu li a:hover::after {
 }
 
 .about-me p {
-    max-width: 50%;
+    width: 50%;
 }
 
-.timeline-2020, .timeline-2022, .timeline-2024 {
+.timeline-2020, 
+.timeline-2022, 
+.timeline-2024 {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: baseline;
     height: 100%;
-    width: 100%;
+    width: 100vw;
+    max-width: 1920px;
     margin: 0;
 }
+.timeline-item {
+    display: grid;
+    margin-top: 40px;
+    height: 450px;
+    width: fit-content;
+    grid-template-columns: 300px 650px;
+    align-items: start;
+}
 
-.timeline-2020::before, .timeline-2022::before, .timeline-2024::before {
+.timeline-2020::before, 
+.timeline-2022::before, 
+.timeline-2024::before {
     display: absolute;
     width: 20%;
     height: 80%;
     margin: 0 0 0 20%;
     padding: 10px;
-    font-size: 70px;
+    font-size: clamp(50px, 5vw, 70px); 
     font-weight: 900;
     text-align: center;
     text-shadow: 0px 4px 4px var(--color-text-shadow);
@@ -293,8 +307,7 @@ nav .menu li a:hover::after {
 }
 
 .timeline-contnet .content {
-    margin-left: 10px;
-    margin-bottom: 15px;
+    margin: 0 10px 15px 0;
     padding: 25px;
     list-style-type: none;
     border-radius: 50px;
@@ -303,18 +316,9 @@ nav .menu li a:hover::after {
 .content li {
     margin-bottom: 10px;
     font-weight: 900;
-    font-size: 1.5rem;
+    font-size: clamp(10px, 5vw, 20px);
 }
 
-.timeline-item {
-    margin-top: 40px;
-    height: 400px;
-    width: fit-content;
-    display: grid;
-    grid-template-columns: 300px 650px;
-    align-items: start;
-    margin-left: 250px;
-}
 
 .skill {
     margin-bottom: 15px;
@@ -322,11 +326,10 @@ nav .menu li a:hover::after {
 
 .skill li {
     list-style-type: none;
-    font-size: 1rem;
+    font-size: clamp(10px, 5vw, 20px);
 }
 
 .progress-bar {
-    width: 100%;
     background-color: var(--color-background);
     border-radius: 10px;
     overflow: hidden;
@@ -400,7 +403,6 @@ footer {
     flex-direction: column;
     background-color: var(--color-text);
     color: var(--color-background);
-    font-size: 20px;
     padding: 30px 30px 0;
 }
 
@@ -416,92 +418,57 @@ address {
     display: flex;
     flex-direction: column;
     width: 400px;
-    font-size: 20px;
 }
 
-.content ul {
+.footer-content ul {
     list-style: none;
     padding: 0;
 }
 
-.content li {
+.footer-content li {
     margin-bottom: 10px;
-    font-size: 1.5rem;
+    font-size: clamp(15px, 5vw, 20px); 
 }
 
-.content a {
+.footer-content a {
     text-decoration: none;
     color: var(--color-primary);
 }
 
-footer h3 {
+.footer-content h3 {
     text-align: left;
     margin: 0;
 }
+.footer-content h2{
+    font-size: clamp(15px, 5vw, 20px); 
+}
 
 .copyright {
-    font-size: 12px;
+    font-size: clamp(6px, 5vw, 12px);
     text-align: center;
 }
-/* 1200px */
-@media (max-width: 75em) { 
-    .about-me {
-        flex-direction: row;
-        text-align: center;
-        margin-left: 0;
-    }
-    .about-me img {
-        width: 50%;
-        margin: 20px 0;
-    }
-    .about-me article {
-        width: 90%;
-        text-align: start;
-    }
-    .about-me p {
-        max-width: 95%;
-    }
-    .timeline-item {
-        margin-left: 0;
-        grid-template-columns: 150px 550px;
-    }
-    .timeline-2020::before,
-    .timeline-2022::before,
-    .timeline-2024::before {
-        width: 50%;
-        font-size: 50px;
-    }
-    .Project {
-        margin: 30px;
-        height: 400px;
-    }
-    .Project article {
-        width: 60%;
-        margin: 35px;
-    }
-    .footer-up {
-        font-size: 15px;
-    }
-}
-/* 768px */
-@media (max-width: 48em) {
-    .guideline {
-        transform: translateX(-40%);
+
+@media (min-width: 600px) and (max-width: 1024px) {
+    nav .menu{
+        justify-content: space-around;
+        width: 100%;
     }
     nav .menu .nav-links{
-        justify-items: start;
-        width: 200px;
+        width: 100%;
+    }
+    nav .menu .nav-links li{
+        margin-left: 20px;
     }
     nav .menu li a {
         font-size: 20px;
         text-align: start;
     }
-    nav .menu .selected-option{
+    nav .menu .about-me-selected-option{
         display: block;
         cursor: pointer;
-        align-items: start;
+        width: fit-content;
     }
-    nav .menu .selected-option::after{
+    nav .menu .about-me-selected-option::after{
         display: none;
     }
     nav .menu .nav-links .menu-dropdown{
@@ -509,7 +476,7 @@ footer h3 {
         position: absolute;
         width: max-content;
     }
-    nav .menu .nav-links:hover .menu-dropdown{
+    nav .menu .nav-links.active .menu-dropdown{
         display: block;
         width: 200px;
         margin: 0px;
@@ -518,41 +485,53 @@ footer h3 {
     }
 
     .language-select{
-        display: none;
-        padding: 20px;
-        width: 20px;
-        height: 5px;
+        display: flex;
+        align-items: end;
+        margin: 0 20px;
+        height: 50%;
+        width: 50%;
+    }
+    .language-option{
+        height: 30px;
+        width: 25px;
+    }
+    .language-select.open .languageOption-items {
+        width: 10%;
+    }
+    .about-me{
+        margin-left: 0;
     }
     .about-me img {
-        width: 100%;
-        margin: 20px 0;
+        width: 50%;
+        margin-left: 0;
     }
     .about-me h1 {
         font-size: var(--font-size-xl);
     }
     .about-me p {
-        max-width: 85%;
         margin: 10px 0;
-        font-size: var(--font-size-sm)
+        width: 80%;
     }
     .timeline-item {
+        height: 330px;
         grid-template-columns: 250px 300px;
-        height: auto;
     }
     .timeline-2020,
     .timeline-2022,
     .timeline-2024{
+        margin-top: 10%;
+        height: 70%;
         align-items: center;
     }
     .timeline-2020::before,
     .timeline-2022::before,
     .timeline-2024::before {
         margin: 0 0 0 0;
+        width: 50%;
         font-size: 40px;
     }
     .Project {
         flex-direction: column;
-        margin: 30px;
         width: 90%;
         height: 600px;
     }
@@ -569,90 +548,158 @@ footer h3 {
     }
     .footer-up {
         display: flex;
-        font-size: 1rem;
-    }
-    .content li {
-        font-size: 1rem;
+        font-size: 15px;
     }
 }
-/* 480px */
-@media (max-width: 30em) {
-    .guideline {
-        transform: translateX(-2%);
+
+@media (max-width: 600px) {
+    nav .menu{
+        justify-content: space-between;
+        width: 100%;
     }
-    nav .menu {
-        flex-direction: row;
-        margin: 10px;
+    nav .menu .nav-links{
+        width: 50%;
     }
-    nav .menu li {
-        margin: 5px;
+    nav .menu .nav-links li{
+        margin-left: 10px;
     }
     nav .menu li a {
-        font-size: 18px;
+        font-size: 20px;
+        text-align: start;
     }
-    .about-me {
+    nav .menu .about-me-selected-option{
+        display: block;
+        cursor: pointer;
+        width: fit-content;
+    }
+    nav .menu .about-me-selected-option::after{
+        display: none;
+    }
+    nav .menu .nav-links .menu-dropdown{
+        display: none;
+        position: absolute;
+        width: max-content;
+        
+    }
+    nav .menu .nav-links.active .menu-dropdown{
+        display: block;
+        width: 200px;
+        margin: 0px;
+        background: 0px;
+        backdrop-filter: blur(0px);
+    }
+
+    .language-select{
+        display: flex;
+        align-items: end;
+        margin: 0 10px;
+        height: 50%;
+        width: 10%;
+    }
+    .language-option{
+        height: 30px;
+        width: 30px;
+    }
+    .language-select.open .languageOption-items {
+        width: 10%;
+    }
+    .about-me{
+        display: flex;
         flex-direction: column;
-        justify-content: center;
-        text-align: center;
-        margin-bottom: 10px;
+        margin-left: 0;
+        font-size: 80%;
     }
     .about-me img {
-        width: 70%;
-        margin: 5px 0;
+        width: 80%;
+        margin-left: 0;
+    }
+    .about-me article{
+        text-align: center;
+        margin: 0 20%;
     }
     .about-me h1 {
-        font-size: 20px;
-    }
-    .about-me article {
-        width: 90%;
-        text-align: center;
+        font-size: var(--font-size-xl);
     }
     .about-me p {
-        max-width: 95%;
-        font-size: 12px;
+        width: 100%;
+        margin: 10px 0;
     }
     .timeline-item {
-        grid-template-columns: 100px 250px;
-        height: auto;
+        margin-top: 20px;
+        display: flex;
+        height: 80%;
+        width: 90%;
+        flex-direction: column;
+    }
+    .timeline-2020 .timeline-item .timeline-skill-level,
+    .timeline-2022 .timeline-item .timeline-skill-level,
+    .timeline-2024 .timeline-item .timeline-skill-level{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 100%;
+        padding: 15px;
+        margin-bottom: 10px;
+    }
+    .skill{
+        margin: 0;
+        font-size: 10px;
+    }
+    .timeline-contnet{
+        width: 100%;
+        font-size: 90%
+    }
+    .content li{
+        font-size: 100%;
     }
     .timeline-2020,
     .timeline-2022,
-    .timeline-2024 {
-        align-items: start;
-        margin: 0 0 0 20px;
+    .timeline-2024{
+        margin-top: 5%;
+        height: 80%;
+        align-items: center;
     }
     .timeline-2020::before,
     .timeline-2022::before,
     .timeline-2024::before {
-        font-size: 25px;
-        margin: 10px;
+        margin: 0 0 0 0;
+        width: 50%;
+        font-size: 40px;
     }
     .Project {
-        margin: 10px;
-        height: 200px;
+        flex-direction: column;
+        width: 90%;
+        height: 600px;
+        margin: 20px 5%;
     }
     .Project article {
-        width: 80%;
-        margin: 20px;
+        width: 90%;
+        margin: 10px;
     }
     .Project h3 {
-        font-size: 9px;
         margin: 0;
     }
     .Project p {
-        font-size: 10px;
+        font-size: 25px;
         margin: 0;
+    }
+    footer{
+        padding: 10px 15px;
+    }
+    address{
+        width: 350px;
+        margin-bottom: 20px;
+        background-color: var(--color-background);
+        padding: 20px;
+        color: var(--color-text);
+        border-radius: 20px;
+    }
+    .footer-up .content li{
+        margin-bottom: 5px;
     }
     .footer-up {
         display: flex;
-        padding: 10px;
-        justify-content: space-between;
-        font-size: 0.8rem;
-    }
-    .content h2 {
-        margin-left: 10px;
-    }
-    .content li {
-        font-size: 0.7rem;
+        flex-direction: column;
+        font-size: 15px;
     }
 }

@@ -1,19 +1,18 @@
 <!DOCTYPE html>
-<html lang="zh-TW">
+<html lang="tss">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CYTlit-cup</title>
     <link href="home.css" rel="stylesheet">
     <link rel="icon" href="./images/lit3.1 1.svg" type="image/svg+xml">
-    <script src="./js/language-select.js" defer></script>
 </head>
 <body>
     <header>
         <nav class="guideline">
-            <div class="menu">
+            <nav class="menu">
                 <ul class="nav-links">
-                    <li><a href="#about-me-option" class="selected-option">關於我</a></li>
+                    <li><a href="#about-me-option" class="about-me-selected-option">關於我</a></li>
                     <ul class="menu-dropdown">
                         <li data-value="關於我"><a href="#about-me" class="active">關於我</a></li>
                         <li data-value="學習與歷程"><a href="#timeline">學習與經歷</a></li>
@@ -21,10 +20,10 @@
                     </ul>
                 </ul>
                 <div class="language-select">
-                    <div class="select-selected">
+                    <div class="language-option">
                         <img src="./images/translate.svg" alt="icon">
                     </div>
-                    <div class="select-items">
+                    <div class="languageOption-items">
                         <div data-lang="zh">
                             <img src="./images/TW.svg" alt="icon">
                         </div>
@@ -36,12 +35,12 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </nav>
         </nav>   
     </header>
     <main>
         <section class="about-me" data-value="關於我" id="about-me">
-            <img src="./images/lit3.1 1.svg" class="flicker performance-optimized" height="300px" width="300px">
+            <img src="./images/lit3.1 1.svg" alt="A emblem of Chen Yi Ting" class="flicker performance-optimized" height="300px" width="300px">
             <article>
                 <h1>陳奕廷</h1>
                 <h1>前端開發者</h1>
@@ -167,7 +166,7 @@
         </section>
         <footer>
             <div class="footer-up">
-                <address class="content">
+                <address class="footer-content">
                     <h3>聯繫方式</h3>
                     <ul>
                         <li>Email:  stuart.yitingchen@gmail.com</li>
@@ -183,5 +182,6 @@
             </div>
         </footer>
     </main>
+    <script src="./js/home.js" defer></script>
 </body>
 </html>
