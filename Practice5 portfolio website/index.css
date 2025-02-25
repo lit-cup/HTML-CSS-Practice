@@ -45,6 +45,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    list-style: none;
 }
 
 html {
@@ -94,24 +95,26 @@ nav .menu{
     display: flex;
     justify-content: center;
     align-items: center;
+    width: 100%;
 }
 nav .menu .nav-links .menu-dropdown {
     display: flex;
     justify-content: center;
     align-items: center;
     margin: 20px;
+    padding: 20px;
     list-style: none;
     border-radius: 200px;
     background: linear-gradient(to right, #ffffff80, #ffffff20);
     backdrop-filter: blur(5px);
 }
 
-nav .menu li {
+nav .menu li a{
     list-style: none;
     margin: 15px 40px;
 }
 
-nav .menu li a {
+nav .menu li a{
     position: relative;
     font-size: clamp(20px, 5vw, 25px);
     font-weight: 900;
@@ -141,18 +144,14 @@ nav .menu li a:hover::after {
 
 .language-select {
     cursor: pointer;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 6%;
-    height: 6%;
 }
-
+.language-option{
+    margin: 10px;
+}
 .language-option img {
     display: block;
     width: 100%;
     height: 100%;
-    margin-bottom: 10px;
 }
 
 .language-select .languageOption-items {
@@ -459,9 +458,10 @@ address {
     nav .menu .nav-links li{
         margin-left: 20px;
     }
-    nav .menu li a {
+    nav .menu li a{
         font-size: 20px;
         text-align: start;
+        margin: 0;
     }
     nav .menu .about-me-selected-option{
         display: block;
@@ -479,30 +479,31 @@ address {
     nav .menu .nav-links.active .menu-dropdown{
         display: block;
         width: 200px;
-        margin: 0px;
+        margin: 0;
+        padding: 0;
         background: 0px;
         backdrop-filter: blur(0px);
     }
-
+    nav .menu .nav-links.active .menu-dropdown li{
+        margin: 10px 20px;
+    }
     .language-select{
         display: flex;
         align-items: end;
         margin: 0 20px;
-        height: 50%;
-        width: 50%;
     }
     .language-option{
         height: 30px;
         width: 25px;
     }
     .language-select.open .languageOption-items {
-        width: 10%;
+        width: 20%;
     }
     .about-me{
         margin-left: 0;
     }
     .about-me img {
-        width: 50%;
+        width: 90%;
         margin-left: 0;
     }
     .about-me h1 {
@@ -563,7 +564,7 @@ address {
     nav .menu .nav-links li{
         margin-left: 10px;
     }
-    nav .menu li a {
+    nav .menu li a{
         font-size: 20px;
         text-align: start;
     }

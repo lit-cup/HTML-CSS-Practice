@@ -6,7 +6,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const selectedOption = document.querySelector(".about-me-selected-option");
     const dropdownItems = document.querySelectorAll(".menu-dropdown li")
     const menuItems = document.querySelectorAll('nav .menu li a');
-    
+    let currentLang = localStorage.getItem("language") || "zh";
+
     
     //導覽列底線
     menuItems.forEach(item => {
@@ -53,17 +54,39 @@ document.addEventListener('DOMContentLoaded', () => {
         if (e.target.closest('div')) {
           const selectedItem = e.target.closest('div');
           const imgSrc = selectedItem.querySelector('img').src;
-          const lang = selectedItem.getAttribute('data-lang');
-    
+          let lang = selectedItem.getAttribute('data-lang');
+          currentLang = lang;
           // 更新選中的內容
-          selected.innerHTML = `<img src="${imgSrc}" alt="icon">`;
+          selected.innerHTML = `<img src="${imgSrc}" alt="icon" loading="lazy">`;
     
           // 模擬語言切換邏輯
           //alert(`切換到語言：${text}`);
           languageSelect.classList.remove('open');
+          loadTranslations(currentLang);
         }
     });
+    async function loadTranslations(lang) {
+        try {
+            const response = await fetch("./js/language.json");
+            const translateions = await response.json();
+            
+            document.querySelectorAll("[data-lang]").forEach((element)=>{
+                const key = element.getAttribute("data-lang");
+                if(translateions[lang][key]){
 
+                    element.innerHTML = translateions[lang][key];
+                        // 重新觸發瀏覽器渲染
+                    element.style.display = "none";
+                    element.offsetHeight; // 強制重繪
+                    element.style.display = "";
+                }
+            });
+            localStorage.setItem("language", lang);
+        } catch (error) {
+            console.error("Error Translations", error)
+        }
+    }
+    loadTranslations(currentLang);
     // 監聽選單項目點擊事件
     dropdownItems.forEach(item => {
     item.addEventListener("click", () => {
@@ -71,6 +94,7 @@ document.addEventListener('DOMContentLoaded', () => {
         selectedOption.textContent = newValue; // 更新固定顯示的選項
         menuSelect.classList.remove('active');
     });
+
 });
     
 });
