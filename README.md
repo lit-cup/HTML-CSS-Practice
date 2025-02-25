@@ -1,5 +1,12 @@
-# HTML-CSS-Practice
+# HTML-CSS-JS-Practice
 
-Put everything i practice HTML/CSS/JS
+##Practice 1 Practice Simple Sign up Form & Sheet 
 
-Plan to learn more about React.js/Next.js
+##Practice 2 Practice RWD for P1 
+
+##Practice 3 RWD&Enhanced Added static display registration form
+
+##Practice 4 Figma Portfolio UI designed
+
+##Practice 5 Personal Portfolio Website 
+A static website built with HTML, CSS, and JavaScript, featuring a responsive navbar, skills progress bars, and portfolio section. Currently learning JavaScript and planning to transition to React/Next.js for advanced features.
