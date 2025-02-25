@@ -446,7 +446,7 @@ address {
     font-size: clamp(6px, 5vw, 12px);
     text-align: center;
 }
-
+/* need fix */
 @media (min-width: 600px) and (max-width: 1024px) {
     nav .menu{
         justify-content: space-around;
@@ -552,7 +552,7 @@ address {
         font-size: 15px;
     }
 }
-
+/* need fix */
 @media (max-width: 600px) {
     nav .menu{
         justify-content: space-between;
