@@ -182,7 +182,7 @@ nav .menu li a:hover::after {
 }
 
 .language-select .languageOption-items div:hover {
-    background-color: var(--color-text-shadow);
+    background-color: var(--color-text);
     border-radius: 5px;
 }
 
