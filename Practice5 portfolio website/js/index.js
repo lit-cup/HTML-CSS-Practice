@@ -6,6 +6,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const selectedOption = document.querySelector(".about-me-selected-option");
     const menuItems = document.querySelectorAll('nav .menu li a');
     let currentLang = localStorage.getItem("language") || "zh";
+    const themeToggle = document.getElementById('theme-toggle');
+    let currentTheme = localStorage.getItem("theme") || "light";
 
     async function loadTranslations(lang) {
         try {
@@ -28,8 +30,27 @@ document.addEventListener('DOMContentLoaded', () => {
             console.error("Error Translations", error)
         }
     }
+    // Apply saved theme
+    if (currentTheme === "dark") {
+        document.documentElement.setAttribute("data-theme", "dark");
+    } else {
+        document.documentElement.setAttribute("data-theme", "light");
+    }
+
+    // Theme toggle functionality
+    themeToggle.addEventListener('click', () => {
+        if (currentTheme === "light") {
+            document.documentElement.setAttribute("data-theme", "dark");
+            currentTheme = "dark";
+        } else {
+            document.documentElement.setAttribute("data-theme", "light");
+            currentTheme = "light";
+        }
+        localStorage.setItem("theme", currentTheme);
+    });
+
     loadTranslations(currentLang);
-    //導覽列底線
+    //menu-line
     menuItems.forEach(item => {
         item.addEventListener('click', function() {
             menuItems.forEach(i => i.classList.remove('active'));
