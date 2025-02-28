@@ -27,7 +27,6 @@
     --transform-3d: translate3d(0, 0, 0);
     --gpu-acceleration: perspective(1000px);
 }
-
 [data-theme="dark"] {
     --color-primary: #ff572d;
     --color-background: #0c0706;
@@ -41,12 +40,6 @@
     --color-project-article-bg: rgba(255, 127, 80, 0.4);
 }
 
-.performance-optimized {
-    transform: var(--transform-3d);
-    backface-visibility: hidden;
-    perspective: var(--gpu-acceleration);
-    will-change: transform, opacity;
-}
 
 .flex-center {
     display: flex;
@@ -72,7 +65,7 @@ body {
     line-height: 1.5;
     -webkit-font-smoothing: antialiased;
     margin: 0;
-    height: 100vh;
+    height: 150vh;
     max-height: 950px;
 }
 
@@ -193,51 +186,16 @@ nav .menu li a:hover::after {
 .language-select.open .languageOption-items {
     display: block;
 }
-
-.theme-toggle {
-    cursor: pointer;
-    margin: 5px;
-    width: 35px;
-    height: 35px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border: 2px dashed var(--color-primary);
-    border-radius: 50%;
-    box-shadow: 0 2px 5px var(--color-text-shadow);
-    transition: transform 0.3s ease;
-}
-
-.theme-toggle:hover {
-    transform: scale(1.1);
-}
-
-.theme-toggle .icon {
-    font-size: 1.2rem;
-    color: var(--color-text);
-}
-
-.theme-toggle .moon-icon,
-[data-theme="dark"] .theme-toggle .sun-icon {
-    display: none;
-}
-
-.theme-toggle .sun-icon,
-[data-theme="dark"] .theme-toggle .moon-icon {
-    display: block;
-}
-
 .about-me {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: space-evenly;
     align-items: center;
-    height: 50%;
-    margin-left: 15%;
+    height: 100%;
 }
 
 .about-me img {
-    width: 60%;
+    width: 50%;
     height: auto;
     animation: flicker var(--animation-duration) infinite var(--animation-timing);
     transform: var(--transform-3d);
@@ -260,7 +218,7 @@ nav .menu li a:hover::after {
 }
 
 .about-me article {
-    width: fit-content;
+    width: 45%;
     height: auto;
 }
 
@@ -282,6 +240,8 @@ nav .menu li a:hover::after {
 .about-me p {
     width: 50%;
     color: var(--color-text);
+}
+.journey-begins{
 }
 
 .timeline-2020, 
@@ -382,9 +342,13 @@ nav .menu li a:hover::after {
     height: 10px;
     background-color: var(--color-background);
     border-radius: 10px;
-    transition: width 0.5s ease;
+    animation: width 2s ease-in-out;
 }
-
+@keyframes width {
+    0% {
+        width: 0;
+    }
+}
 .timeline-2020 .timeline-item .timeline-skill-level,
 .timeline-2022 .timeline-item .timeline-skill-level,
 .timeline-2024 .timeline-item .timeline-skill-level {
@@ -490,7 +454,68 @@ address {
 .footer-content h2{
     font-size: clamp(15px, 5vw, 20px); 
 }
+.footer-backup{
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    justify-content: center;
+    text-align: center;
+    height: 100px;
+}
+.footer-toggle{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: end;
+    width: 100%;
+}
+.footer-backup span{
+    margin: 0 50px 0 10px;
+    font-size: 30px;
+    font-weight: 900;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    border-radius: 50%;
+    background-color: var(--color-background);
+    border: 2px dashed var(--color-primary);
+    box-shadow: 0 2px 5px var(--color-text-shadow);
+}
+.footer-backup span:hover{
+    transform: scale(1.1);
+}
+.theme-toggle {
+    cursor: pointer;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--color-background);
+    border: 2px dashed var(--color-primary);
+    border-radius: 50%;
+    box-shadow: 0 1px 2px var(--color-text-shadow);
+    transition: transform 0.3s ease;
+}
 
+.theme-toggle:hover {
+    transform: scale(1.1);
+}
+
+.theme-toggle .icon {
+    font-size: 1.2rem;
+    color: var(--color-text);
+}
+
+.theme-toggle .moon-icon,
+[data-theme="dark"] .theme-toggle .sun-icon {
+    display: none;
+}
+
+.theme-toggle .sun-icon,
+[data-theme="dark"] .theme-toggle .moon-icon {
+    display: block;
+}
 .copyright {
     font-size: clamp(6px, 5vw, 12px);
     text-align: center;
