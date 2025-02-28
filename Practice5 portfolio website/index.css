@@ -574,12 +574,16 @@ address {
         width: 20%;
         margin: 0 20px;
     }
-    .about-me{
-        margin-left: 0;
+    header::before {
+        height: 90vh;
+        border-radius: 0 0 60px 60px;
+        background: radial-gradient(ellipse, var(--color-background) 75%, var(--color-primary) 300%);
+    }
+    .about-me{  
+        height: 70vh;
     }
     .about-me img {
-        width: 90%;
-        margin-left: 0;
+        width: 50%;
     }
     .about-me h1 {
         font-size: var(--font-size-xl);
@@ -697,6 +701,11 @@ address {
     .language-select.open .languageOption-items {
         width: 70%;
         margin: 0 10px;
+    }
+    header::before {
+        height: 83vh;
+        border-radius: 0 0 30px 30px;
+        background: radial-gradient(ellipse, var(--color-background) 75%, var(--color-primary) 300%);
     }
     .about-me{
         display: flex;
