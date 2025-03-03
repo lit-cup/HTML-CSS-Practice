@@ -1,15 +1,16 @@
 document.addEventListener('DOMContentLoaded', () => {
     //For language option
-    const selected = document.querySelector('.language-option');
+    const languageOption = document.querySelector('.language-option');
     const languageOptionItems = document.querySelector('.languageOption-items');
     const languageSelect = document.querySelector('.language-select');
-    const menuSelect = document.querySelector('.nav-links');
+    const languageOptionImg = document.querySelectorAll('.language-option-img');
     //For default language 
     let currentLang = localStorage.getItem("language") || "en";
     //For menu
     const selectedOption = document.querySelector(".about-me-selected-option");
-    const menuItemshref = document.querySelectorAll('.menu li a');
+    const menuItemshref = document.querySelectorAll('.menu-dropdown-item');
     const menuItems = document.querySelectorAll('.menu-dropdown li');
+    const menuDropdown = document.querySelector('.menu-dropdown');
     //For theme toggle
     const themeToggle = document.getElementById('theme-toggle');
     //For default theme
@@ -21,8 +22,40 @@ document.addEventListener('DOMContentLoaded', () => {
     const progressbar = document.querySelectorAll('.progress');
     //For animation elements
     const timelineItems = document.querySelectorAll('.timeline-item');
-    const timelineContents = document.querySelectorAll('.timeline-contnet .content');
-    const projectSection = document.querySelector('.Project');
+    const timelineContents = document.querySelectorAll('timeline-content--describe');
+    const projectSection = document.querySelector('.project');
+    //For project filtering
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const projectItems = document.querySelectorAll('.project-item');
+
+    // Project filtering functionality
+    function setupProjectFiltering() {
+        if (filterButtons.length > 0 && projectItems.length > 0) {
+            filterButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    // Remove active class from all buttons
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    
+                    // Add active class to clicked button
+                    button.classList.add('active');
+                    
+                    // Get filter value
+                    const filterValue = button.getAttribute('data-filter');
+                    
+                    // Filter projects
+                    projectItems.forEach(item => {
+                        const category = item.getAttribute('data-category');
+                        
+                        if (filterValue === 'all' || filterValue === category) {
+                            item.classList.remove('hidden');
+                        } else {
+                            item.classList.add('hidden');
+                        }
+                    });
+                });
+            });
+        }
+    }
 
     //For progressbar animation
     function progressbarAnimation(){
@@ -45,7 +78,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('visible');
                     if (entry.target.classList.contains('timeline-item')) {
-                        const contents = entry.target.querySelectorAll('.content');
+                        const contents = entry.target.querySelectorAll('.timeline-content--describe');
                         contents.forEach((content, index) => {
                             setTimeout(() => {
                                 content.classList.add('visible');
@@ -88,16 +121,44 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // Call the setup function
-    setupIntersectionObserver();
- 
-    // Apply saved theme
-    if (currentTheme === "dark") {
+    function darkTheme(){
         document.documentElement.setAttribute("data-theme", "dark");
-    } else {
-        document.documentElement.setAttribute("data-theme", "light");
+        languageOption.querySelector('img').src = "./images/dark-theme/translate_dark.svg";
+        languageOptionImg.forEach(item => {
+            if(item.getAttribute('alt') === 'TW-icon'){
+                item.src = "./images/dark-theme/tw_dark.svg";
+            }else if(item.getAttribute('alt') === 'EN-icon'){
+                item.src = "./images/dark-theme/en_dark.svg";
+            }else if(item.getAttribute('alt') === 'JP-icon'){
+                item.src = "./images/dark-theme/jp_dark.svg";
+            }
+        });
     }
-
+    function lightTheme(){
+        document.documentElement.setAttribute("data-theme", "light");
+        languageOption.querySelector('img').src = "./images/light-theme/translate_light.svg";
+        languageOptionImg.forEach(item => {
+            if(item.getAttribute('alt') === 'TW-icon'){
+                item.src = "./images/light-theme/tw_light.svg";
+            }else if(item.getAttribute('alt') === 'EN-icon'){
+                item.src = "./images/light-theme/en_light.svg";
+            }else if(item.getAttribute('alt') === 'JP-icon'){
+                item.src = "./images/light-theme/jp_light.svg";
+            }
+        });
+    }
+    // Apply saved theme
+    function setTheme(){
+        if (currentTheme === "dark") {
+            darkTheme();
+        } else {
+            lightTheme();
+        }
+    }
+    // Call the setup functions
+    setupIntersectionObserver();
+    setupProjectFiltering();
+    setTheme();
     // Theme toggle functionality
     themeToggle.addEventListener('click', () => {
         if (currentTheme === "light") {
@@ -108,6 +169,7 @@ document.addEventListener('DOMContentLoaded', () => {
             currentTheme = "light";
         }
         localStorage.setItem("theme", currentTheme);
+        setTheme();
     });
 
     //footer-backup action
@@ -132,12 +194,12 @@ document.addEventListener('DOMContentLoaded', () => {
     //open menu
     selectedOption.addEventListener('click',()=>{
         if(window.innerWidth <= 768){
-            menuSelect.classList.toggle('active');
+            menuDropdown.classList.toggle('active');
         }
         menuItems.forEach(item => {
             item.addEventListener('click', function() {
                 if(window.innerWidth <= 768){
-                    menuSelect.classList.remove('active');
+                    menuDropdown.classList.remove('active');
                 }
             });
         });
@@ -214,7 +276,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
     //open translate language
-    selected.addEventListener('click', () => {
+    languageOption.addEventListener('click', () => {
         languageSelect.classList.toggle('open');
     });
     
@@ -225,7 +287,7 @@ document.addEventListener('DOMContentLoaded', () => {
           let lang = selectedItem.getAttribute('data-lang');
           currentLang = lang;
           // tranform img src of language option
-          selected.innerHTML = `<img src="${imgSrc}" alt="icon" loading="lazy">`;
+          languageOption.innerHTML = `<img src="${imgSrc}" alt="icon" loading="lazy">`;
           // close language option
           languageSelect.classList.remove('open');
           // load translations
@@ -236,14 +298,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
 //close language option and menu when click outside
 document.addEventListener("click", function (event) {
-    const selected = document.querySelector('.language-option');
+    const languageOption = document.querySelector('.language-option');
     const languageOptionItems = document.querySelector('.languageOption-items');
     const languageSelect = document.querySelector('.language-select');
-    const menuSelect = document.querySelector('.nav-links');
+    const menuSelect = document.querySelector('.menu-nav-links');
     const selectedOption = document.querySelector(".about-me-selected-option");
     const dropdownItems = document.querySelectorAll(".menu-dropdown li")
 
-    if (!selected.contains(event.target) && !languageOptionItems.contains(event.target)) {
+    if (!languageOption.contains(event.target) && !languageOptionItems.contains(event.target)) {
         languageSelect.classList.remove("open");
     }
     if (!selectedOption.contains(event.target) && !Array.from(dropdownItems).some(item => item.contains(event.target))) {
