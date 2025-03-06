@@ -4,6 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const languageOptionItems = document.querySelector('.languageOption-items');
     const languageSelect = document.querySelector('.language-select');
     const languageOptionImg = document.querySelectorAll('.language-option-img');
+    const githubIcon = document.querySelector('.github-icon');
     //For default language 
     let currentLang = localStorage.getItem("language") || "en";
     //For menu
@@ -16,7 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
     //For default theme
     let currentTheme = localStorage.getItem("theme") || "light";
     //For footer backup
-    const footerTop = document.querySelector('.footer-backup');
+    const footerbackTop = document.querySelector('.footer-backup--icon');
     const footerToggle = document.querySelector('.footer-toggle');
     //For progressbar
     const progressbar = document.querySelectorAll('.progress');
@@ -27,6 +28,16 @@ document.addEventListener('DOMContentLoaded', () => {
     //For project filtering
     const filterButtons = document.querySelectorAll('.filter-btn');
     const projectItems = document.querySelectorAll('.project-item');
+
+
+
+    const projectManager = new ProjectManager(projectData);
+    document.querySelectorAll('.project-item').forEach(projectItem => {
+        projectItem.addEventListener('click', () =>{
+            const projectID = projectItem.getAttribute('id');
+            projectManager.openProject(projectID);
+        });
+    });
 
     // Project filtering functionality
     function setupProjectFiltering() {
@@ -123,6 +134,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function darkTheme(){
         document.documentElement.setAttribute("data-theme", "dark");
+        githubIcon.src = "./images/dark-theme/github_mark_white_dark.svg";
         languageOption.querySelector('img').src = "./images/dark-theme/translate_dark.svg";
         languageOptionImg.forEach(item => {
             if(item.getAttribute('alt') === 'TW-icon'){
@@ -136,6 +148,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     function lightTheme(){
         document.documentElement.setAttribute("data-theme", "light");
+        githubIcon.src = "./images/light-theme/github_mark_light.svg";
         languageOption.querySelector('img').src = "./images/light-theme/translate_light.svg";
         languageOptionImg.forEach(item => {
             if(item.getAttribute('alt') === 'TW-icon'){
@@ -173,7 +186,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     //footer-backup action
-    footerTop.addEventListener('click', () => {
+    footerbackTop.addEventListener('click', () => {
         window.scrollTo({
             top: 0,
             behavior: 'smooth'
