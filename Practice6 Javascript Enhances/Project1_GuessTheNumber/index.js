@@ -5,9 +5,22 @@
 let score = 20;
 const scoreValue = document.querySelector('.score-value');
 const message = document.querySelector('.label-message');
-const secretNumber = Math.trunc(Math.random() * 20) + 1;
+let secretNumber = Math.trunc(Math.random() * 20) + 1;
 
-//check btn click event
+//[again] btn click event
+document.querySelector('.btn-again').addEventListener('click', function(){
+    score = 20;
+    secretNumber = Math.trunc(Math.random() * 20) + 1;
+    message.textContent = 'Start guessing...';
+    document.querySelector('.guess').value = '';
+    scoreValue.textContent = score;
+    document.querySelector('.number').textContent = '?';
+    document.querySelector('body').style.backgroundColor = '#ffdddd';
+    document.querySelector('.number').style.width = '50%';
+
+});
+
+//[check] btn click event
 document.querySelector('.btn-check').addEventListener('click', function(){
     const guess = Number(document.querySelector('.guess').value);
     //empty check
@@ -18,7 +31,6 @@ document.querySelector('.btn-check').addEventListener('click', function(){
     if(guess === secretNumber){
         message.textContent = '🎉 Correct Number!';
         document.querySelector('body').style.backgroundColor = '#fffb00';
-        document.querySelector('.number').style.width = '30rem';
         document.querySelector('.number').textContent = secretNumber;
     }
     //When guess is bigger than secret number
