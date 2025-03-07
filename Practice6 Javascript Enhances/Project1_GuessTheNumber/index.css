@@ -64,7 +64,10 @@ main{
     border: 5px solid #701313;
     font-size: 10rem;
     color: #701313;
-    padding: 5rem 10rem;
+    width: 50%;
+    align-items: center;
+    text-align: center;
+    padding: 5rem;
     margin: 0 5rem;
 }
 .result{
@@ -120,4 +123,5 @@ main{
 }
 .score p{
     margin: 1rem;
+
 }
